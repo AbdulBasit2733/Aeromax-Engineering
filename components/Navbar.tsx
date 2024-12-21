@@ -11,12 +11,13 @@ const Navbar = () => {
 
   return (
     <div className="md:px-8 flex justify-between items-center max-h-24 max-w-full px-4">
-      <Image src={logo} alt="logo" className="h-36 w-36" /> {/* Adjusted the size of the logo */}
+      <Image src={logo} alt="logo" className="h-56 w-56" /> {/* Adjusted the size of the logo */}
+      
       <div
         className={`${
           navOpen
-            ? "md:hidden flex absolute h-fit py-10 top-24 left-0 bg-white w-full flex-col gap-10 z-20 items-center"
-            : "hidden md:flex md:flex-row gap-x-10 items-center"
+            ? "md:hidden flex absolute h-screen py-10 top-24 left-0 bg-white w-full flex-col gap-10 z-20 items-center transition-all ease-in-out duration-500"
+            : "hidden md:flex md:flex-row gap-x-10 items-center transition-all ease-in-out duration-500"
         }`}
       >
         <Link
@@ -41,6 +42,8 @@ const Navbar = () => {
           Contact us
         </button>
       </div>
+
+      {/* Toggle Button for Mobile Menu */}
       <button onClick={() => setNavOpen(!navOpen)} className="md:hidden p-0">
         {navOpen ? <XIcon /> : <MenuIcons />}
       </button>
